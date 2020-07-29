@@ -145,6 +145,18 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 
 ----
 
+## Maiores no Desenvolvimento da Solução
+
+As maiores dificuldades se concentraram no desenvolvimento do frontend, devido a minha especializaçãõ maior em backend, mas nada impediu de desenvolver uma aplicação funcional, entre as principais dificuldades, estão:
+
+	- Definir a arquitetura do frontend com React, mantendo boas práticas de organização até então não muito aprofundadas;
+	- Encontrar o css mais simples e eficaz para atender o planejado para a interface;
+	- Simplificar comportamento de acesso, atentando para não mantermos uma conexão com websocket sem necessidade antes do usuário entrar nada sala;
+	- Se despendeu um certo tempo tentando aplicar o histórico do chat com `display: flex` e `flex-direction: column-reverse`, pois o firefox, meu navegador padrão, possui um bug nesse tipo de visualização;
+  - Dificuldades inerentes de usar uma linguagem e framework com pouca experiência (Go e React), mas que auxiliam muito a pensar fora da caixa para o desenvolvimento e a desenvolver habilidades.
+
+----
+
 ## Mais Informações
 
 Detalhes de estrutura e instruções mais detalhadas estão presentes dentro das pastas `frontend/` e `backend/`
