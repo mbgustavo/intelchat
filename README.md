@@ -139,7 +139,7 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 
 * Dentro da sala de chat você poderá ver um frame principal onde as mensagens aparecem, e ao lado uma lista de usuários. Nessa lista de usuários, o seu apelido aparece destacado. Esse menu é responsivo e não é exibido para larguras de tela menores que 768px.
 
-![ChatRoom](https://user-images.githubusercontent.com/44649580/88800657-e1a51b80-d17e-11ea-98cc-096c02c3f595.png)
+![ChatRoom](https://user-images.githubusercontent.com/44649580/88803130-68a7c300-d182-11ea-8270-b107452038d9.png)
 
 * Abaixo da tela com as mensagens há a entrada de mensagens para o chat que podem ser enviadas apertando `Enter` ou o botão `Enviar`. O botão `Sair` lança uma mensagem de confirmação para desconectar o usuário do chat e voltar para a tela de acesso. O botão de voltar do navegador possui o mesmo comportamento.
 
