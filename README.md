@@ -127,6 +127,8 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 
 * Acesse a interface do chat acessando o endereço e a porta onde o serviço está rodando (Ex: `localhost:4000`)
 
+[!UserAccess](https://user-images.githubusercontent.com/44649580/88800464-94c14500-d17e-11ea-9ab6-903eb9779f7a.png)
+
 * Digite um apelido para entrar no sala de chat. O apelido não pode ser vazio e possui um limite de caracteres configurado em arquivos JSON (16 por padrão) e não podem haver usuários com o mesmo apelido conectados na sala.
 
 * Aperte `Enter` ou o botão `Entrar`na página
@@ -136,6 +138,8 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 * Na tela inicial não há conexão com o websocket, a mesma só é estabelecida após o usuário entrar na sala.
 
 * Dentro da sala de chat você poderá ver um frame principal onde as mensagens aparecem, e ao lado uma lista de usuários. Nessa lista de usuários, o seu apelido aparece destacado. Esse menu é responsivo e não é exibido para larguras de tela menores que 768px.
+
+[!ChatRoom](https://user-images.githubusercontent.com/44649580/88800657-e1a51b80-d17e-11ea-98cc-096c02c3f595.png)
 
 * Abaixo da tela com as mensagens há a entrada de mensagens para o chat que podem ser enviadas apertando `Enter` ou o botão `Enviar`. O botão `Sair` lança uma mensagem de confirmação para desconectar o usuário do chat e voltar para a tela de acesso. O botão de voltar do navegador possui o mesmo comportamento.
 
@@ -149,10 +153,10 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 
 As maiores dificuldades se concentraram no desenvolvimento do frontend, devido a minha especializaçãõ maior em backend, mas nada impediu de desenvolver uma aplicação funcional, entre as principais dificuldades, estão:
 
-	- Definir a arquitetura do frontend com React, mantendo boas práticas de organização até então não muito aprofundadas;
-	- Encontrar o css mais simples e eficaz para atender o planejado para a interface;
-	- Simplificar comportamento de acesso, atentando para não mantermos uma conexão com websocket sem necessidade antes do usuário entrar nada sala;
-	- Se despendeu um certo tempo tentando aplicar o histórico do chat com `display: flex` e `flex-direction: column-reverse`, pois o firefox, meu navegador padrão, possui um bug nesse tipo de visualização;
+  - Definir a arquitetura do frontend com React, mantendo boas práticas de organização até então não muito aprofundadas;
+  - Encontrar o css mais simples e eficaz para atender o planejado para a interface;
+  - Simplificar comportamento de acesso, atentando para não mantermos uma conexão com websocket sem necessidade antes do usuário entrar nada sala;
+  - Se despendeu um certo tempo tentando aplicar o histórico do chat com `display: flex` e `flex-direction: column-reverse`, pois o firefox, meu navegador padrão, possui um bug nesse tipo de visualização;
   - Dificuldades inerentes de usar uma linguagem e framework com pouca experiência (Go e React), mas que auxiliam muito a pensar fora da caixa para o desenvolvimento e a desenvolver habilidades.
 
 ----
