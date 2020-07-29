@@ -1,0 +1,31 @@
+:root {
+  --bg-gradient: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(0,56,24,1) 89%, rgba(0, 146, 48, 1) 100%);
+  --green: rgb(0, 163, 53);
+  --dark-green: rgb(0, 146, 48);
+  --red: rgb(215, 39, 54);
+  --dark-gray: rgb(73, 77, 124);
+  --gray: rgb(81, 119, 138);
+  --light-gray: rgb(125, 136, 143);
+  --lighter-gray: rgb(139, 151, 159);
+}
+
+* {
+  font-family: 'Nunitosans', sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./fonts/NunitoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./fonts/NunitoSans-Bold.ttf');
+  font-weight: 700;
+}

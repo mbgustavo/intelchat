@@ -1,0 +1,25 @@
+{
+  "title": "Intelchat",
+  "welcome": "Bem-vindo ao Intelchat",
+  "users": "Usuários",
+  "newUser": "acabou de entrar",
+  "userLeft": "saiu da sala",
+  "confirmLeaveRoom": "Você deseja sair da sala de chat?",
+  "connectionLost": "Conexão perdida, tente entrar novamente",
+  "placeholder": {
+    "chooseNickname": "Escolha um apelido",
+    "typeMessage": "Digite uma mensagem"
+  },
+  "button": {
+    "enter": "Entrar",
+    "send": "Enviar",
+    "leave": "Sair"
+  },
+  "error": {
+    "nicknameUsed": "Já há um usuário com esse apelido na sala",
+    "emptyNickname": "Nome de usuário não pode ser vazio",
+    "nicknameTooLarge": "Seu apelido é maior do que o permitido",
+    "fullRoom": "A sala do chat está cheia",
+    "unexpected": "Ocorreu um erro inesperado, tente novamente em instantes"
+  }
+}

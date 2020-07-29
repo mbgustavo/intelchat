@@ -1,0 +1,8 @@
+.user {
+  font-weight: bold;
+  color: var(--gray);
+}
+
+.user.me {
+  color: var(--dark-green);
+}

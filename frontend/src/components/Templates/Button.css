@@ -1,0 +1,19 @@
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  padding: 5px 20px;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.button.off {
+  background: var(--red)
+}

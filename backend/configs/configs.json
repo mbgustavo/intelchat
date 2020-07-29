@@ -1,0 +1,13 @@
+{
+  "serverPort": "4000",
+  "webSocket": {
+    "readBufferSize": 1024,
+    "writeBufferSize": 1024
+  },
+  "logFiles": false,
+  "verboseLogs": true,
+  "maxClients": 50,
+  "maxNickLength": 16,
+  "serveFiles": false,
+  "staticFilesPath": "../frontend/build"
+}

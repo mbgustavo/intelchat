@@ -1,0 +1,20 @@
+:root {
+  --frame-border-radius: 5px;
+}
+
+.chat-room {
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  grid-template-columns: 1fr 180px;
+  grid-template-areas:
+    "history users"
+    "input input";
+  margin: 10px;
+  overflow: auto;
+}
+
+@media(max-width: 768px) {
+  .chat-room {
+    grid-template-columns: 1fr;
+  }
+}

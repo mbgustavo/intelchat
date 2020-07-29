@@ -1,0 +1,9 @@
+.message {
+  color: var(--dark-gray);
+  margin: 5px;
+}
+
+.message .info-message {
+  color: var(--gray);
+  font-style: italic;
+}

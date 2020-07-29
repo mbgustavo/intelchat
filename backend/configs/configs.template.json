@@ -1,0 +1,13 @@
+{
+  "serverPort": "0000",
+  "webSocket": {
+    "readBufferSize": 0,
+    "writeBufferSize": 0
+  },
+  "logFiles": false,
+  "verboseLogs": false,
+  "maxClients": 0,
+  "maxNickLength": 0,
+  "serveFiles": false,
+  "staticFilesPath": "/"
+}

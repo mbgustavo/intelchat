@@ -1,0 +1,14 @@
+.chat-history {
+  background: white;
+  border-radius: var(--frame-border-radius);
+  padding: 10px;
+  grid-area: history;
+  overflow: auto;
+}
+
+.chat-history > div {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+}

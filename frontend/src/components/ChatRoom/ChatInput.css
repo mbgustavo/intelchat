@@ -1,0 +1,9 @@
+.chat-input {
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr;
+  background: white;
+  border-radius: var(--frame-border-radius);
+  grid-area: input;
+  margin-top: 10px;
+  padding: 5px;
+}

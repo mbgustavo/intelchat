@@ -1,68 +1,150 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Intelchat
 
-## Available Scripts
+Sala de chat que permite a comunicação de diversos usuários.
 
-In the project directory, you can run:
+O desenvolvimento foi dividido em um ambiente backend e um frontend. Os ambientes se comunicam através de uma conexão por *web socket*, onde o frontend se conecta em um *pool* de clientes no backend ao entrar com sucesso na sala de chat, facilitando a comunicação em tempo real de mensagens e atualizações na sala. A conexão se mantém ativa enquanto o usuário estiver na sala.
 
-### `npm start`
+O backend da aplicação foi desenvolvido em Go, utilizando a biblioteca externa gorilla/websocket.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O frontend foi desenvolvido utilizando o framework React, a partir da criação de sua aplicação padrão.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+O código foi desenvolvido com nomes de variáveis, comentários e mensagens seguindo padrões em inglês, sendo apenas as mensagens exibidas ao usuário na navegação configuradas em português.
 
-### `npm test`
+----
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pré-requisitos
 
-### `npm run build`
+* É necessário possuir Go instalado. O último release foi realizado com a versão 1.14.2.
+* É necessário ter node e npm instalados. O último release foi realizado com a versão 12.16.1 do node e 6.13.4 do npm.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+----
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Procedimentos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dentro de `scripts/` há scripts para comandos básicos que permitem realizar procedimento básicos para utilização do sistema. O conteúdo desses arquivos está comentado e pode ser utilizado para caso se deseje aplicar um comando individual. Os scripts devem ser executados dentro da sua pasta com o seguinte comando no bash: `sh <script>.sh`.
 
-### `npm run eject`
+* **build**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Compila o conteúdo do backend em Go, criando e colocando o executável na pasta backend/build juntamente com o arquivo de configurações para produção. Executa também o comando para realizar o build do código do frontend para frontend/build.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **execute**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Executa a aplicação caso o build já tenha sido realizado. Esse script apenas executa o código do backend, que deverá estar configurado para server os arquivos de build do frontend. Caso não se deseje manter a opção de servir os arquivos no backend, é possível rodar o frontend separadamente instalando o `serve` e executando o mesmo. Dentro do arquivo há instruções detalhadas de como realizar este procedimento.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* **install**:
 
-## Learn More
+Instala as dependências dos projetos. É recomendável rodar esse script antes de realizar o build, e obrigatório caso a instalação de dependências não tenha sido realizada anteriormente.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **test**:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Executa testes unitários e realiza benchmark. Não é necessário realizar build para rodar esse comando.
 
-### Code Splitting
+----
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Eventos do Web Socket
 
-### Analyzing the Bundle Size
+### Servidor -> Cliente
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* **Nome**
 
-### Making a Progressive Web App
+  `access`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+  **Corpo**
 
-### Advanced Configuration
+  `{ "message": "Alfred acabou de entrar" }`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  **Descrição**
 
-### Deployment
+  Sinaliza entrada de novo usuário na sala
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+* **Nome**
 
-### `npm run build` fails to minify
+  `access-result`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  **Corpo**
+
+  `{ "result": true, "reason": "", "users" = [Will, Mike, Dustin] }`
+  `{ "result": false, "reason": "room-full", "users" = [] }`
+
+  **Descrição**
+
+  Retorna resultado da tentativa de acesso ao usuário
+
+* **Nome**
+
+  `message`
+
+  **Corpo**
+
+  `{ "nickname": "Alfred", "message": "Boa tarde, meus caros." }`
+
+  **Descrição**
+
+  Mensagem enviada por um usuário repassada para os demais
+
+* **Nome**
+
+  `exit`
+
+* **Corpo**
+
+  `{ message: "Alfred saiu da sala" }`
+
+  **Descrição**
+
+  Sinaliza saída de usuário da sala
+
+  
+### Client -> Servidor
+
+* **Nome**
+
+  `access`
+
+  **Corpo**
+
+  `{ "Alfred" }`
+
+  **Descrição**
+
+  Tentativa de acesso de cliente com determinado apelido
+
+* **Nome**
+
+  `message`
+
+  **Corpo**
+
+  `{ "Boa tarde, meus caros." }`
+
+  **Descrição**
+
+  Mensagem enviada por um cliente
+
+----
+
+## Instruções de Uso
+
+* Acesse a interface do chat acessando o endereço e a porta onde o serviço está rodando (Ex: `localhost:4000`)
+
+* Digite um apelido para entrar no sala de chat. O apelido não pode ser vazio e possui um limite de caracteres configurado em arquivos JSON (16 por padrão) e não podem haver usuários com o mesmo apelido conectados na sala.
+
+* Aperte `Enter` ou o botão `Entrar`na página
+
+* Possíveis erros ao acessar são mostrados logo abaixo do campo de apelido do usuário. Problemas de conexão com o servidor podem ser aferidos abrindo o console do navegador.
+
+* Na tela inicial não há conexão com o websocket, a mesma só é estabelecida após o usuário entrar na sala.
+
+* Dentro da sala de chat você poderá ver um frame principal onde as mensagens aparecem, e ao lado uma lista de usuários. Nessa lista de usuários, o seu apelido aparece destacado. Esse menu é responsivo e não é exibido para larguras de tela menores que 768px.
+
+* Abaixo da tela com as mensagens há a entrada de mensagens para o chat que podem ser enviadas apertando `Enter` ou o botão `Enviar`. O botão `Sair` lança uma mensagem de confirmação para desconectar o usuário do chat e voltar para a tela de acesso. O botão de voltar do navegador possui o mesmo comportamento.
+
+* Caso a conexão com o servidor caia, uma mensagem é exibida na tela para o usuário voltar para a tela de acesso.
+
+* Não atualize a página ou sua conexão será perdida.
+
+----
+
+## Mais Informações
+
+Detalhes de estrutura e instruções mais detalhadas estão presentes dentro das pastas `frontend/` e `backend/`

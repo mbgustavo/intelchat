@@ -1,0 +1,29 @@
+.users-list {
+  background: white;
+  border-radius: var(--frame-border-radius);
+  padding: 10px;
+  grid-area: users;
+  margin-left: 10px;
+  overflow: auto;
+}
+
+.users-list > div {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 90%;
+}
+
+.users-list h3 {
+  color: var(--dark-gray);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+@media(max-width: 768px) {
+  .users-list {
+    display: none;
+  }
+}

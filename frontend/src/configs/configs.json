@@ -1,0 +1,6 @@
+{
+  "serverAddress": "127.0.0.1",
+  "serverPort": "4000",
+  "maxMsgLength": 240,
+  "maxNickLength": 16
+}
