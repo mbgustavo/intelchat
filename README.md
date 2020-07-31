@@ -149,7 +149,7 @@ Executa testes unitários e realiza benchmark. Não é necessário realizar buil
 
 ----
 
-## Maiores no Desenvolvimento da Solução
+## Maiores Desafios no Desenvolvimento da Solução
 
 As maiores dificuldades se concentraram no desenvolvimento do frontend, devido a minha especializaçãõ maior em backend, mas nada impediu de desenvolver uma aplicação funcional, entre as principais dificuldades, estão:
 
